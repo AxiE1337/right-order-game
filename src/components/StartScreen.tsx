@@ -1,4 +1,3 @@
-import { Button, Chip, Slider } from '@mantine/core'
 import { memo } from 'react'
 import { useDispatch } from 'react-redux'
 import {
@@ -7,34 +6,20 @@ import {
   changeOrder,
   changeGameStatus,
 } from '../redux/slices/gameConfig'
+import Slider from './ui/Slider'
 
-const items = [
-  { value: 0, label: '2' },
-  { value: 1, label: '3' },
-  { value: 2, label: '4' },
-  { value: 3, label: '5' },
-]
-
-const values = [
-  { value: 0, label: 'A' },
-  { value: 1, label: '9' },
-  { value: 2, label: '19' },
-  { value: 3, label: '50' },
-  { value: 4, label: '99' },
-  { value: 5, label: '999' },
-]
+const valuesLabel = ['A', '9', '19', '50', '99', '999']
+const itemsLabel = ['2', '3', '4', '5']
 
 function StartScreen() {
   const dispatch = useDispatch()
 
   const itemsHandler = (item: number) => {
-    const itemsQuantity = items.find((i: any) => i.value === item)
-    dispatch(gameItems(itemsQuantity?.label))
+    dispatch(gameItems(item))
   }
 
   const valueHandler = (value: number) => {
-    const currentValue = values.find((v: any) => v.value === value)
-    dispatch(gameValue(currentValue?.label))
+    dispatch(gameValue(valuesLabel[value - 1]))
   }
 
   const gameModeHandler = (value: string) => {
@@ -49,45 +34,55 @@ function StartScreen() {
     <>
       <div className='w-4/5'>
         <div className='flex flex-col items-center p-3'>
-          <h1>Кол-во предметов</h1>
-          <div className='w-full mb-5'>
-            <Slider
-              label={null}
-              defaultValue={0}
-              step={1}
-              marks={items}
-              labelTransition='fade'
-              max={3}
-              onChangeEnd={itemsHandler}
-            />
-          </div>
+          <h1>Number of items</h1>
+          <Slider
+            defaultValue={2}
+            maxValue={5}
+            minValue={2}
+            step={1}
+            label={itemsLabel}
+            onChange={itemsHandler}
+          />
         </div>
         <div className='flex flex-col items-center p-3'>
-          <h1>Значения</h1>
-          <div className='w-full mb-5'>
-            <Slider
-              label={null}
-              defaultValue={0}
-              step={1}
-              marks={values}
-              labelTransition='fade'
-              max={5}
-              onChangeEnd={valueHandler}
-            />
-          </div>
+          <h1>Values</h1>
+          <Slider
+            defaultValue={1}
+            maxValue={6}
+            minValue={1}
+            step={1}
+            label={valuesLabel}
+            onChange={valueHandler}
+          />
         </div>
       </div>
-      <Chip.Group
-        position='center'
-        defaultValue={'ascending'}
-        onChange={gameModeHandler}
-      >
-        <Chip value='ascending'>По возростанию</Chip>
-        <Chip value='descending'>По убыванию</Chip>
-      </Chip.Group>
-      <Button variant='outline' onClick={startHandler}>
-        Играть
-      </Button>
+      <div className='flex flex-row form-control'>
+        <label className='label cursor-pointer'>
+          <span className='label-text mr-2'>By ascending order</span>
+          <input
+            onChange={(e: any) => gameModeHandler(e.target.value)}
+            type='radio'
+            name='radio-1'
+            className='radio'
+            defaultChecked
+            value={'ascending'}
+          />
+        </label>
+        <label className='label cursor-pointer'>
+          <span className='label-text mr-2'>By descending order</span>
+          <input
+            onChange={(e: any) => gameModeHandler(e.target.value)}
+            type='radio'
+            name='radio-1'
+            className='radio'
+            value={'descending'}
+          />
+        </label>
+      </div>
+
+      <button className='btn' onClick={startHandler}>
+        Play
+      </button>
     </>
   )
 }

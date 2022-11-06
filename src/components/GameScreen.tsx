@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { RootState } from '../redux/store'
 import { isAscending, isDescending } from '../helpers/checkOrder'
 import Chip from './Chip'
-import WinModal from './WinModal'
+import WinModal from './ui/WinModal'
 import { chipsGenerator } from '../helpers/chipsGenerator'
 
 interface IChip {
