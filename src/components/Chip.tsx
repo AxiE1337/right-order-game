@@ -16,7 +16,12 @@ function Chip({ value, id, name, onClick }: IChip) {
       onClick={() => onClick(id, value, name)}
     >
       <Image alt='chip1' src={chip} />
-      <h1 className='z-10 absolute text-xl text-white font-black'>{name}</h1>
+      <h1
+        className='z-10 absolute text-xl text-white font-black'
+        style={{ WebkitTextStroke: '1px black' }}
+      >
+        {name}
+      </h1>
     </div>
   )
 }

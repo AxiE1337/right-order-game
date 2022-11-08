@@ -9,7 +9,7 @@ interface IArrow {
 function Arrow({ img, text }: IArrow) {
   return (
     <div className='flex mt-1'>
-      <h1 className='text-white ml-4 w-full'>{text}</h1>
+      <h1 className='text-white ml-4 w-full select-none'>{text}</h1>
       <Image alt='arrow1' src={img} className='ml-2 w-16' />
     </div>
   )
