@@ -1,4 +1,6 @@
 import { memo } from 'react'
+import Image from 'next/image'
+import chip from '../../public/assets/chips/chip1.png'
 
 interface IChip {
   value: number
@@ -10,10 +12,11 @@ interface IChip {
 function Chip({ value, id, name, onClick }: IChip) {
   return (
     <div
-      className='p-5 rounded-full bg-cyan-700 text-white select-none'
+      className='relative flex items-center justify-center select-none w-24 ml-0.5 md:w-11 md:ml-0'
       onClick={() => onClick(id, value, name)}
     >
-      {name}
+      <Image alt='chip1' src={chip} />
+      <h1 className='z-10 absolute text-xl text-white font-black'>{name}</h1>
     </div>
   )
 }

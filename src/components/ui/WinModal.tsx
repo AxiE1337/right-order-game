@@ -15,7 +15,7 @@ function WinModal() {
     <>
       {opened && (
         <div
-          className='position: fixed bg-black opacity-75 top-0 left-0 bottom-0 right-0 z-0'
+          className='fixed bg-black opacity-75 top-0 left-0 bottom-0 right-0 z-0'
           onClick={closeModal}
         ></div>
       )}

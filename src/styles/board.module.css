@@ -1,0 +1,23 @@
+.boardImg {
+  width: 700px;
+}
+.board {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  padding-left: 3rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .boardImg {
+    width: 320px;
+  }
+  .board {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    padding-left: 3rem;
+    padding: 1.6rem;
+  }
+}

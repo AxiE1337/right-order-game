@@ -6,6 +6,16 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    colors: {
+      green: '#38DF7A',
+      white: '#FFFFFF',
+      black: '#1c1917',
+      purple: '#7F75F0',
+      purpleDark: '#3A1F36',
+    },
+    screens: {
+      md: { max: '768px' },
+    },
   },
   plugins: [require('daisyui')],
 }
