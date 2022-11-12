@@ -20,8 +20,8 @@ function WinModal() {
         ></div>
       )}
       {opened && (
-        <div className='position: absolute flex flex-col items-center justify-center rounded-md bg-white w-2/4 h-28 z-10'>
-          <h1>You selected right order!</h1>
+        <div className='position: absolute flex flex-col items-center justify-center rounded-md bg-purple w-2/4 h-28 z-10 md:w-4/5'>
+          <h1 className='text-white'>Congratulations you won!</h1>
           <button className='btn mt-3' onClick={closeModal}>
             Ok
           </button>

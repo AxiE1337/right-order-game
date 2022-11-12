@@ -26,12 +26,12 @@ function GameScreen() {
 
   const addChipToBoard = (id: number, value: number, name: string) => {
     const chip = { id: id, value: value, name: name }
-    if (!board.some((i: any) => i.id === id)) {
-      setChips((prev: any) => prev.filter((i: any) => i.id !== id))
-      setBoard((prev: any) => [...prev, chip])
+    if (!board.some((i) => i.id === id)) {
+      setChips((prev) => prev.filter((i) => i.id !== id))
+      setBoard((prev) => [...prev, chip])
     } else {
-      setBoard((prev: any) => prev.filter((i: any) => i.id !== id))
-      setChips((prev: any) => [...prev, chip])
+      setBoard((prev) => prev.filter((i) => i.id !== id))
+      setChips((prev) => [...prev, chip])
     }
   }
 
@@ -66,8 +66,8 @@ function GameScreen() {
 
   return (
     <div className='flex flex-col h-screen w-full items-center justify-center bg-purpleDark'>
-      <div className='flex items-center justify-evenly w-full mb-10'>
-        {chips.map((chip: any) => (
+      <div className='flex items-center justify-evenly w-4/5 mb-10'>
+        {chips.map((chip) => (
           <Chip
             key={chip.id}
             value={chip.value}
@@ -87,7 +87,7 @@ function GameScreen() {
         </div>
         <Image alt='board1' src={boardImg} className={styles.boardImg} />
         <div className={styles.board}>
-          {board.map((chip: any) => (
+          {board.map((chip) => (
             <Chip
               key={chip.id}
               value={chip.value}
